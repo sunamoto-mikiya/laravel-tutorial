@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Facade;
 
 return [
+    'timezone' => 'Asia/Tokyo',
+    'locale' => 'ja',
+    'faker_locale' => 'ja_JP',
 
     /*
     |--------------------------------------------------------------------------

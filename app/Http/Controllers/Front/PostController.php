@@ -24,7 +24,7 @@ class PostController extends Controller
         $posts = Post::publicList();
 
         //compact('変数')でviewに変数を渡すことが出来る['posts'=>$posts]の省略形
-        //表示したいbladeファイルのパスを指定する
+        //表示したいbladeファイルのパスを指定する.
         return view('front.posts.index', compact('posts'));
     }
 

@@ -18,3 +18,4 @@ class DatabaseSeeder extends Seeder
         $this->call(PostSeeder::class);
     }
 }
+//クラス名::classでクラスのパスを返す.pwdに似ている

@@ -24,6 +24,9 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
+    protected $namespace = 'App\Http\Controllers';
+
     public function boot()
     {
         $this->configureRateLimiting();
@@ -31,12 +34,22 @@ class RouteServiceProvider extends ServiceProvider
         $this->routes(function () {
             Route::prefix('api')
                 ->middleware('api')
+                ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
-                ->group(base_path('routes/web.php'));
+                ->namespace($this->namespace . '\Front') //使うコントローラーのパスを書く
+                ->as('front.')
+                ->group(base_path('routes/front.php')); //実際のルート定義をどのファイルに書いているか
+
+            Route::prefix('admin')
+                ->middleware('web')
+                ->namespace($this->namespace . '\Back')
+                ->as('back.')
+                ->group(base_path('routes/back.php'));
         });
     }
+    //prefixはURLの最初の文字列を一括で指定できる
 
     /**
      * Configure the rate limiters for the application.

@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Post;
 
+
 class PostSeeder extends Seeder
 {
     /**
@@ -20,3 +21,5 @@ class PostSeeder extends Seeder
 }
 
 //Post::factory()でPostモデルのFactoryを使う
+//countで指定した件数のダミーデータを作成する
+//DatabaseSeederでPostSeedeクラスをコールする

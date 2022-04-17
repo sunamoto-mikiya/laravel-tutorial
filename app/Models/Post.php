@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -32,9 +34,40 @@ class Post extends Model
 {
     use HasFactory;
 
+    //
+    //fillableで指定したカラムのみ記述可能となりそれ以外は上書き不可
     protected $fillable = [
         'title', 'body', 'is_public', 'published_at'
     ];
-
+    //追記
+    //型変換で使う(データ取得時の型の指定？？)
     protected $casts = ['is_public' => 'bool', 'published_at' => 'datetime'];
+
+
+    //scopeとはcontorllarで書いていたwhere句等の繰り返し処理をまとめたもの
+    //scope+メソッド名で宣言し、呼び出しはClass名::メソッド名
+
+    public function scopePublic(Builder $query)
+    {
+        return $query->where('is_public', true);
+    }
+
+    public function scopePublicList(Builder $query)
+    {
+        return $query->public()->latest('published_at')->paginate(10);
+    }
+
+    public function scopePublicFindById(Builder $query, int $id)
+    {
+        return $query->public()->findOrFail($id);
+    }
+
+    public function getPublshedFormatAttribute()
+    {
+        return $this->published_atformat('Y年m月d日');
+    }
 }
+
+//デフォルトで定義されているEloquentモデルに定義を変えるときに書く
+//このモデルクラスのおかげで簡単にテーブルからデータを取得したり変更したりできる
+//Eloquentはテーブルの操作を簡単にできるモデル

@@ -66,6 +66,21 @@ class Post extends Model
     {
         return $this->published_atformat('Y年m月d日');
     }
+    //userTableとのリレーション定義
+    //多:1=posts:user
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    protected static function boot()
+    {
+        parent::boot();
+
+        // 保存時user_idをログインユーザーに設定
+        self::saving(function ($post) {
+            $post->user_id = \Auth::id();
+        });
+    }
 }
 
 //デフォルトで定義されているEloquentモデルに定義を変えるときに書く

@@ -46,7 +46,7 @@ return [
     |
     */
 
-    'username' => 'email',
+    'username' => 'name',
 
     'email' => 'email',
 
@@ -60,7 +60,7 @@ return [
     | and the user is authenticated. You are free to change this value.
     |
     */
-
+    //ログイン後のリダイレクト先
     'home' => RouteServiceProvider::HOME,
 
     /*
@@ -102,9 +102,11 @@ return [
     |
     */
 
+    //ログイン失敗5回まで
     'limiters' => [
-        'login' => 'login',
-        'two-factor' => 'two-factor',
+        'login' => 5,
+        // 'login' => 'login',
+        // 'two-factor' => 'two-factor',
     ],
 
     /*
@@ -131,16 +133,22 @@ return [
     |
     */
 
+
+
+    //全てコメントアウトする
     'features' => [
-        Features::registration(),
-        Features::resetPasswords(),
-        // Features::emailVerification(),
-        Features::updateProfileInformation(),
-        Features::updatePasswords(),
-        Features::twoFactorAuthentication([
-            'confirm' => true,
-            'confirmPassword' => true,
-        ]),
+        // Features::registration(),
+        // Features::resetPasswords(),
+        // // Features::emailVerification(),
+        // Features::updateProfileInformation(),
+        // Features::updatePasswords(),
+        // Features::twoFactorAuthentication([
+        //     'confirm' => true,
+        //     'confirmPassword' => true,
+        // ]),
     ],
+
+    // /adminでログイン画面にアクセス
+    'path' => 'admin',
 
 ];

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Front;
+namespace App\Http\Controllers\FrontController;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePostRequest;
@@ -25,7 +25,7 @@ class PostController extends Controller
 
         //compact('変数')でviewに変数を渡すことが出来る['posts'=>$posts]の省略形
         //表示したいbladeファイルのパスを指定する.
-        return view('front.posts.index', compact('posts'));
+        return view('frontView.posts.index', compact('posts'));
     }
 
     /**
@@ -61,7 +61,7 @@ class PostController extends Controller
         // $post = Post::where('is_public', true)->findOrFail($id); 
 
         $post = Post::publicFindById($id);
-        return view('front.posts.show', compact('post'));
+        return view('frontView.posts.show', compact('post'));
     }
 
     /**

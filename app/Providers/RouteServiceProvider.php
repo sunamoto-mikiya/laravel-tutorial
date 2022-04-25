@@ -39,18 +39,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
-            // Route::middleware('web')
-            //     ->namespace($this->namespace . '\FrontController') //使うコントローラーのパスを書く
-            //     ->as('frontControllerName.')
-            //     ->group(base_path('routes/frontRoute.php')); //実際のルート定義をどのファイルに書いているか
 
-            // Route::middleware('web')
-            //     ->get('/', $this->namespace . '\FrontController\PostController@index')->name('home');
-
-            // Route::middleware('web')
-            //     ->resource('posts', $this->namespace . '\FrontController\PostController')->only(['index', 'show']);
-
-            Route::group(['namespace' => $this->namespace . '\FrontController'], function () { {
+            Route::group(['middleware' => ['web', 'auth'], 'namespace' => $this->namespace . '\FrontController'], function () { {
                     Route::get('/', 'PostController@index')->name('home');
                     Route::resource('posts', 'PostController')->only(['index', 'show']);
                 }
@@ -62,25 +52,6 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace . '\Back')
                 ->as('back.')
                 ->group(base_path('routes/back.php'));
-
-
-
-
-
-
-            Route::get('hello', function () {
-                echo 'Hello';
-            });
-
-            Route::get('hello/create', function () {
-                echo 'HelloCreate';
-            });
-            Route::get('hello/update', function () {
-                echo 'HelloUpdate';
-            });
-            Route::get('hello/delete', function () {
-                echo 'HelloDelete';
-            });
         });
     }
     //prefixはURLの最初の文字列を一括で指定できる

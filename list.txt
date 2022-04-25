@@ -1,0 +1,39 @@
+ GET|HEAD        / ................................................................................ home › FrontController\PostController@index
+  GET|HEAD        _debugbar/assets/javascript ...................................... debugbar.assets.js › Barryvdh\Debugbar › AssetController@js
+  GET|HEAD        _debugbar/assets/stylesheets ................................... debugbar.assets.css › Barryvdh\Debugbar › AssetController@css
+  DELETE          _debugbar/cache/{key}/{tags?} ............................. debugbar.cache.delete › Barryvdh\Debugbar › CacheController@delete
+  GET|HEAD        _debugbar/clockwork/{id} ............................ debugbar.clockwork › Barryvdh\Debugbar › OpenHandlerController@clockwork
+  GET|HEAD        _debugbar/open ....................................... debugbar.openhandler › Barryvdh\Debugbar › OpenHandlerController@handle
+  POST            _ignition/execute-solution ..................... ignition.executeSolution › Spatie\LaravelIgnition › ExecuteSolutionController
+  GET|HEAD        _ignition/health-check ................................. ignition.healthCheck › Spatie\LaravelIgnition › HealthCheckController
+  POST            _ignition/update-config .............................. ignition.updateConfig › Spatie\LaravelIgnition › UpdateConfigController
+  GET|HEAD        admin .............................................................................. back.dashboard › Back\DashboardController
+  GET|HEAD        admin/posts ..................................................................... back.posts.index › Back\PostController@index
+  POST            admin/posts ..................................................................... back.posts.store › Back\PostController@store
+  GET|HEAD        admin/posts/create ............................................................ back.posts.create › Back\PostController@create
+  GET|HEAD        admin/posts/person .............................................................. back.personPost › Back\PostController@person
+  GET|HEAD        admin/posts/{post} ................................................................ back.posts.show › Back\PostController@show
+  PUT|PATCH       admin/posts/{post} ............................................................ back.posts.update › Back\PostController@update
+  DELETE          admin/posts/{post} .......................................................... back.posts.destroy › Back\PostController@destroy
+  GET|HEAD        admin/posts/{post}/edit ........................................................... back.posts.edit › Back\PostController@edit
+  GET|HEAD        admin/user ....................................................................... back.user.index › Back\UserController@index
+  POST            admin/user ....................................................................... back.user.store › Back\UserController@store
+  GET|HEAD        admin/user/create .............................................................. back.user.create › Back\UserController@create
+  GET|HEAD        admin/user/{user} .................................................................. back.user.show › Back\UserController@show
+  PUT|PATCH       admin/user/{user} .............................................................. back.user.update › Back\UserController@update
+  DELETE          admin/user/{user} ............................................................ back.user.destroy › Back\UserController@destroy
+  GET|HEAD        admin/user/{user}/edit ............................................................. back.user.edit › Back\UserController@edit
+  GET|HEAD        api/user ..................................................................................................................... 
+  GET|HEAD        hello ........................................................................................................................ 
+  GET|HEAD        hello/create ................................................................................................................. 
+  GET|HEAD        hello/delete ................................................................................................................. 
+  GET|HEAD        hello/update ................................................................................................................. 
+  GET|HEAD        login ........................................................ login › Laravel\Fortify › AuthenticatedSessionController@create
+  POST            login ................................................................. Laravel\Fortify › AuthenticatedSessionController@store
+  POST            logout ..................................................... logout › Laravel\Fortify › AuthenticatedSessionController@destroy
+  GET|HEAD        posts ..................................................................... posts.index › FrontController\PostController@index
+  GET|HEAD        posts/{post} ................................................................ posts.show › FrontController\PostController@show
+  GET|HEAD        sanctum/csrf-cookie .............................................................. Laravel\Sanctum › CsrfCookieController@show
+  GET|HEAD        user/confirm-password ................................................... Laravel\Fortify › ConfirmablePasswordController@show
+  POST            user/confirm-password ............................... password.confirm › Laravel\Fortify › ConfirmablePasswordController@store
+  GET|HEAD        user/confirmed-password-status .............. password.confirmation › Laravel\Fortify › ConfirmedPasswordStatusController@show

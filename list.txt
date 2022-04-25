@@ -1,4 +1,5 @@
- GET|HEAD        / ................................................................................ home › FrontController\PostController@index
+
+  GET|HEAD        / ................................................................................ home › FrontController\PostController@index
   GET|HEAD        _debugbar/assets/javascript ...................................... debugbar.assets.js › Barryvdh\Debugbar › AssetController@js
   GET|HEAD        _debugbar/assets/stylesheets ................................... debugbar.assets.css › Barryvdh\Debugbar › AssetController@css
   DELETE          _debugbar/cache/{key}/{tags?} ............................. debugbar.cache.delete › Barryvdh\Debugbar › CacheController@delete
@@ -23,11 +24,8 @@
   PUT|PATCH       admin/user/{user} .............................................................. back.user.update › Back\UserController@update
   DELETE          admin/user/{user} ............................................................ back.user.destroy › Back\UserController@destroy
   GET|HEAD        admin/user/{user}/edit ............................................................. back.user.edit › Back\UserController@edit
+  POST            adminlte/darkmode/toggle .................. adminlte.darkmode.toggle › JeroenNoten\LaravelAdminLte › DarkModeController@toggle
   GET|HEAD        api/user ..................................................................................................................... 
-  GET|HEAD        hello ........................................................................................................................ 
-  GET|HEAD        hello/create ................................................................................................................. 
-  GET|HEAD        hello/delete ................................................................................................................. 
-  GET|HEAD        hello/update ................................................................................................................. 
   GET|HEAD        login ........................................................ login › Laravel\Fortify › AuthenticatedSessionController@create
   POST            login ................................................................. Laravel\Fortify › AuthenticatedSessionController@store
   POST            logout ..................................................... logout › Laravel\Fortify › AuthenticatedSessionController@destroy

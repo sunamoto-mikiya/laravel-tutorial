@@ -38,7 +38,14 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
         //ログイン画面のViewのディレクトリを変更
-        Fortify::viewPrefix('back.auth.');
+        // Fortify::viewPrefix('auth.');
+        Fortify::loginView(function () {
+            return view('auth.login');
+        });
+
+        Fortify::registerView(function () {
+            return view('auth.register');
+        });
 
         RateLimiter::for('login', function (Request $request) {
             $email = (string) $request->email;

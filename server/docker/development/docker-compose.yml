@@ -1,0 +1,44 @@
+version: "3.8"
+
+volumes:
+  php-fpm-socket:
+    driver: ${VOLUMES_DRIVER}
+  postgres:
+    driver: ${VOLUMES_DRIVER}
+
+services:
+
+  # ---------------------------------------------------------
+  # PHP
+
+  app:
+    build:
+      context: ./app
+      args:
+        - WWW_USER_ID=${WWW_USER_ID}
+        - WWW_GROUP_ID=${WWW_GROUP_ID}
+    volumes:
+      - php-fpm-socket:/var/run/php-fpm
+      - ${PROJECT_PATH_HOST}:/var/www/html
+
+  # ---------------------------------------------------------
+  # Nginx
+
+  nginx:
+    build: nginx
+    ports:
+      - ${WEB_PORT}:80
+    volumes:
+      - php-fpm-socket:/var/run/php-fpm
+      - ${PROJECT_PATH_HOST}:/var/www/html
+
+  postgres:
+    build: ./postgres
+    volumes:
+      - ${DATA_PATH_HOST}/postgres:/var/lib/postgresql/data
+    ports:
+      - '${POSTGRES_PORT}:5432'
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}

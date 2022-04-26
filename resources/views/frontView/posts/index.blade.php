@@ -10,17 +10,16 @@ $title = '投稿一覧';
     {{-- @extendsで継承したファイル内の@yieldの部分に@section~@endsectionの部分を埋め込む --}}
 
     <section class="content pb-3">
-
         <div class="container-fluid h-100">
             <div class="row">
-                <div class="card card-secondary col-sm">
+                <div class="card  card-secondary col-sm">
                     <div class="card-header">
                         <h3 class="card-title">
                             To Do
                         </h3>
                     </div>
-                    <div class="card-body">
-                        <div class="card card-info card-outline">
+                    <div class="card-body p-1">
+                        <div class="card p-1 card-info card-outline">
                             <div class="card-header">
                                 <div class="card-tools">
                                     <a href="#" class="btn btn-tool btn-link">Edit Task</a>
@@ -38,7 +37,7 @@ $title = '投稿一覧';
                             Doing
                         </h3>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body p-1">
                         <div class="card card-primary card-outline">
                             <div class="card-header">
                                 <div class="card-tools">
@@ -57,7 +56,7 @@ $title = '投稿一覧';
                             Done
                         </h3>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body p-1">
                         <div class="card card-light card-outline">
                             <div class="card-header">
                                 <div class="card-tools">
@@ -76,7 +75,7 @@ $title = '投稿一覧';
                             Submitted
                         </h3>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body p-0">
                         <div class="card card-primary card-outline">
                             <div class="card-header">
                                 <div class="card-tools">

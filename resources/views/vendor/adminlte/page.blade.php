@@ -21,8 +21,6 @@
             @include('adminlte::partials.navbar.navbar')
         @endif
 
-
-
         {{-- Content Wrapper --}}
         @empty($iFrameEnabled)
             @include('adminlte::partials.cwrapper.cwrapper-default')

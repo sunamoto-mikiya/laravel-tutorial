@@ -1,4 +1,3 @@
-
   GET|HEAD        / ................................................................................ home › FrontController\PostController@index
   GET|HEAD        _debugbar/assets/javascript ...................................... debugbar.assets.js › Barryvdh\Debugbar › AssetController@js
   GET|HEAD        _debugbar/assets/stylesheets ................................... debugbar.assets.css › Barryvdh\Debugbar › AssetController@css

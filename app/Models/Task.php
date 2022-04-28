@@ -13,4 +13,11 @@ class Task extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    protected $fillable = [
+        'id',
+        'user_id',
+        'created_at',
+        'updated_at',
+    ];
 }

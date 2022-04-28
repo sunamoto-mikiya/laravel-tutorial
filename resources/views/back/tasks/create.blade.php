@@ -13,24 +13,20 @@
                     {{-- タイトル設定欄 --}}
                     <div class="form-group">
                         <label>タイトル</label>
-                        <input type="text" name="title" class="form-control" placeholder="Enter ..."
-                            control-id="ControlID-11">
+                        <input type="text" name="title" class="form-control" control-id="ControlID-11">
                     </div>
                     {{-- 期日設定フォーム --}}
                     <div class="form-group">
                         <label>提出日</label>
                         <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
-                            <input type="date" name='submission' class="form-control datetimepicker-input"
+                            <input type="datetime-local" name='submission' class="form-control datetimepicker-input"
                                 data-target="#reservationdatetime" control-id="ControlID-32">
-                            <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                            </div>
+
                         </div>
                     </div>
                     {{-- チェックボックス --}}
                     <div class="custom-control custom-checkbox mb-10">
-                        <input class="custom-control-input" type="hidden" name="is_repeat" id="customCheckbox1" value="0"
-                            control-id="ControlID-28">
+                        <input class="custom-control-input" type="hidden" name="is_repeat" value="0">
                         <input class="custom-control-input" type="checkbox" name="is_repeat" id="customCheckbox1" value="1"
                             control-id="ControlID-28">
                         <label for="customCheckbox1" class="custom-control-label">予定を繰り返す</label>
@@ -39,13 +35,13 @@
                     <div class="form-group">
                         <label>繰り返す曜日</label>
                         <select class="form-control" name="repeatday" control-id="ControlID-24">
-                            <option value=0>日</option>
-                            <option value=1>月</option>
-                            <option value=2>火</option>
-                            <option value=3>水</option>
-                            <option value=4>木</option>
-                            <option value=5>金</option>
-                            <option value=6>土</option>
+                            <option value=0>日曜日</option>
+                            <option value=1>月曜日</option>
+                            <option value=2>火曜日</option>
+                            <option value=3>水曜日</option>
+                            <option value=4>木曜日</option>
+                            <option value=5>金曜日</option>
+                            <option value=6>土曜日</option>
                         </select>
                     </div>
                     {{-- 繰り返す期日 --}}
@@ -54,9 +50,7 @@
                         <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
                             <input type="date" name="repeat" class="form-control datetimepicker-input"
                                 data-target="#reservationdatetime" control-id="ControlID-32">
-                            <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                            </div>
+
                         </div>
                     </div>
                     {{-- 通知を送る設定 --}}

@@ -42,8 +42,7 @@ class RouteServiceProvider extends ServiceProvider
 
 
             Route::group(['middleware' => ['web', 'auth'], 'namespace' => $this->namespace . '\FrontController'], function () { {
-                    Route::get('/', 'PostController@index')->name('home');
-                    Route::resource('posts', 'PostController')->only(['index', 'show']);
+                    Route::get('/', 'TaskController@index')->name('home');
                 }
             });
 

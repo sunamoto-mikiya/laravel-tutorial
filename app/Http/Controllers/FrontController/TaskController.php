@@ -6,26 +6,19 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
+use Illuminate\Http\Request;
 
-class PostController extends Controller
+class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //is_publicがtrueのカラムを取得して、それを降順に並べたものを1ページに10個表示する
-        // $posts = Post::where('is_public', true)
-        //     ->orderby('published_at', 'desc')
-        //     ->paginate(10); //10カラムで1ページ
-
-        $posts = Post::publicList();
-
-        //compact('変数')でviewに変数を渡すことが出来る['posts'=>$posts]の省略形
-        //表示したいbladeファイルのパスを指定する.
-        return view('frontView.posts.index', compact('posts'));
+        $user = $request->user();
+        return view('frontView.tasks.index', compact('user'));
     }
 
     /**

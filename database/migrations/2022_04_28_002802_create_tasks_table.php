@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
+            $table->id('user_id');
+            $table->text('title');
+            $table->timestamp('submission');
+            $table->int('advance')->comment('通知日n日前');
+            $table->timestamp('repeat');
+            $table->id('group_id');
             $table->timestamps();
         });
     }

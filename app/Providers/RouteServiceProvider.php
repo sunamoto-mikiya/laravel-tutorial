@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Http\Controllers\Back\UserController;
 use App\Http\Controllers\Front\PostController;
+use App\Http\Controllers\Front\TaskController;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;

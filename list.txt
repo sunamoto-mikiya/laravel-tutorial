@@ -1,4 +1,4 @@
-GET|HEAD        / .................................................................................................. home › FrontController\PostController@index
+ GET|HEAD        / .................................................................................................. home › FrontController\TaskController@index
   GET|HEAD        _debugbar/assets/javascript ........................................................ debugbar.assets.js › Barryvdh\Debugbar › AssetController@js
   GET|HEAD        _debugbar/assets/stylesheets ..................................................... debugbar.assets.css › Barryvdh\Debugbar › AssetController@css
   DELETE          _debugbar/cache/{key}/{tags?} ............................................... debugbar.cache.delete › Barryvdh\Debugbar › CacheController@delete
@@ -32,8 +32,6 @@ GET|HEAD        / ..............................................................
   GET|HEAD        login .......................................................................... login › Laravel\Fortify › AuthenticatedSessionController@create
   POST            login ................................................................................... Laravel\Fortify › AuthenticatedSessionController@store
   POST            logout ....................................................................... logout › Laravel\Fortify › AuthenticatedSessionController@destroy
-  GET|HEAD        posts ....................................................................................... posts.index › FrontController\PostController@index
-  GET|HEAD        posts/{post} .................................................................................. posts.show › FrontController\PostController@show
   GET|HEAD        register .......................................................................... register › Laravel\Fortify › RegisteredUserController@create
   POST            register ...................................................................................... Laravel\Fortify › RegisteredUserController@store
   POST            reset-password ................................................................. password.update › Laravel\Fortify › NewPasswordController@store

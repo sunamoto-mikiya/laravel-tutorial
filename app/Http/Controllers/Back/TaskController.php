@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Back;
 
+use App\Models\Task;
 use App\Http\Controllers\Controller;
+use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class TaskController extends Controller
 {
@@ -35,7 +39,24 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // バリデーション
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'memo' => 'required',
+        ]);
+        // バリデーション:エラー
+        if ($validator->fails()) {
+            return redirect()
+                ->route('back.tasks.ceate')
+                ->withInput()
+                ->withErrors($validator);
+        }
+
+        $data = $request->merge(['user_id' => Auth::user()->id])->all();
+        $result = Task::create($data);
+        dd($data);
+
+        return redirect()->route('back.tasks.index');
     }
 
     /**

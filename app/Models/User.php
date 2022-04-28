@@ -76,7 +76,7 @@ class User extends Authenticatable
         $this->hasMany(Post::class);
     }
 
-    public function tast()
+    public function task()
     {
         $this->hasMany(Task::class);
     }

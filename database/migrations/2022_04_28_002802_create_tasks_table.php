@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->id('user_id');
+            $table->foreignId('user_id')->constrained();
             $table->text('title');
             $table->timestamp('submission');
-            $table->int('advance')->comment('通知日n日前');
-            $table->timestamp('repeat');
-            $table->id('group_id');
+            $table->integer('advance')->comment('通知日n日前');
+            $table->boolean('is_repeat');
+            $table->timestamp('repeat')->nullable();
+            $table->integer('group_id');
+            $table->longText('memo')->nullable();
             $table->timestamps();
         });
     }

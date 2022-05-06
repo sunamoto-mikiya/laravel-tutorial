@@ -9,7 +9,9 @@
                 </button>
             </a>
         </div>
+
         <div class="container-fluid h-100">
+
             <div class="row">
                 <div class="card  card-secondary col-sm">
                     <div class="card-header">
@@ -17,17 +19,19 @@
                             To Do
                         </h3>
                     </div>
-                    <div class="card-body p-1">
-                        <div class="card p-1 card-info card-outline">
-                            <div class="card-header">
-                                <div class="card-tools">
-                                    <a href="{{ route('back.tasks.edit', $user->id) }}" class="btn btn-tool">
-                                        <i class="fas fa-pen"></i>
-                                    </a>
+                    @foreach ($tasks as $task)
+                        <div class="card-body p-1">
+                            <div class="card p-1 card-info card-outline">
+                                <div class="card-header">
+                                    <div class="card-tools">
+                                        <a href='#' class="btn btn-tool">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="card card-row card-primary col-sm">
                     <div class="card-header">
@@ -35,17 +39,19 @@
                             Doing
                         </h3>
                     </div>
-                    <div class="card-body p-1">
-                        <div class="card card-primary card-outline">
-                            <div class="card-header">
-                                <div class="card-tools">
-                                    <a href="#" class="btn btn-tool">
-                                        <i class="fas fa-pen"></i>
-                                    </a>
+                    @foreach ($tasks as $task)
+                        <div class="card-body p-1">
+                            <div class="card card-primary card-outline">
+                                <div class="card-header">
+                                    <div class="card-tools">
+                                        <a href="#" class="btn btn-tool">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="card card-row card-default col-sm">
                     <div class="card-header bg-info">
@@ -53,17 +59,19 @@
                             Done
                         </h3>
                     </div>
-                    <div class="card-body p-1">
-                        <div class="card card-light card-outline">
-                            <div class="card-header">
-                                <div class="card-tools">
-                                    <a href="#" class="btn btn-tool">
-                                        <i class="fas fa-pen"></i>
-                                    </a>
+                    @foreach ($tasks as $task)
+                        <div class="card-body p-1">
+                            <div class="card card-primary card-outline">
+                                <div class="card-header">
+                                    <div class="card-tools">
+                                        <a href="#" class="btn btn-tool">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="card card-row card-success col-sm">
                     <div class="card-header">
@@ -71,19 +79,22 @@
                             Submitted
                         </h3>
                     </div>
-                    <div class="card-body p-0">
-                        <div class="card card-primary card-outline">
-                            <div class="card-header">
-                                <div class="card-tools">
-                                    <a href="#" class="btn btn-tool">
-                                        <i class="fas fa-pen"></i>
-                                    </a>
+                    @foreach ($tasks as $task)
+                        <div class="card-body p-1">
+                            <div class="card card-primary card-outline">
+                                <div class="card-header">
+                                    <div class="card-tools">
+                                        <a href="#" class="btn btn-tool">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
+
         </div>
         </div>
     </section>

@@ -36,7 +36,7 @@
                         <label>繰り返す曜日</label>
                         <select class="form-control" name="repeatday" control-id="ControlID-24">
                             <option value=0>日曜日</option>
-                            <option value=1>月曜日</option>
+                            <option value=1 selected>月曜日</option>
                             <option value=2>火曜日</option>
                             <option value=3>水曜日</option>
                             <option value=4>木曜日</option>
@@ -59,7 +59,7 @@
                         <select class="form-control" name="advance" control-id="ControlID-24">
                             <option value=0>0日前</option>
                             <option value=1>1日前</option>
-                            <option value=2>2日前</option>
+                            <option value=2 selected>2日前</option>
                             <option value=3>3日前</option>
                             <option value=4>4日前</option>
                             <option value=5>5日前</option>

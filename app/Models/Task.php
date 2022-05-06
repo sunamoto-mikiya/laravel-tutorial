@@ -19,4 +19,9 @@ class Task extends Model
         'created_at',
         'updated_at',
     ];
+
+    public static function getTask($id)
+    {
+        return self::where('user_id', $id)->get();
+    }
 }

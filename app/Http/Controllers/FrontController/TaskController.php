@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -17,8 +18,11 @@ class TaskController extends Controller
      */
     public function index(Request $request)
     {
-        $user = $request->user();
-        return view('frontView.tasks.index', compact('user'));
+        $user = $request->user()->id;
+        $tasks = Task::getTask($user);
+
+
+        return view('frontView.tasks.index', compact('tasks'));
     }
 
     /**

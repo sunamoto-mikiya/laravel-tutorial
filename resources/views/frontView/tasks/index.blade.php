@@ -20,17 +20,19 @@
                         </h3>
                     </div>
                     @foreach ($tasks as $task)
-                        <div class="card-body p-1">
-                            <div class="card p-1 card-info card-outline">
-                                <div class="card-header">
-                                    <div class="card-tools">
-                                        <a href='#' class="btn btn-tool">
-                                            <i class="fas fa-pen"></i>
-                                        </a>
+                        @if ($task->status == 0)
+                            <div class="card-body p-1">
+                                <div class="card p-1 card-info card-outline">
+                                    <div class="card-header">
+                                        <div class="card-tools">
+                                            <a href='#' class="btn btn-tool">
+                                                <i class="fas fa-pen"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
                 <div class="card card-row card-primary col-sm">
@@ -40,17 +42,19 @@
                         </h3>
                     </div>
                     @foreach ($tasks as $task)
-                        <div class="card-body p-1">
-                            <div class="card card-primary card-outline">
-                                <div class="card-header">
-                                    <div class="card-tools">
-                                        <a href="#" class="btn btn-tool">
-                                            <i class="fas fa-pen"></i>
-                                        </a>
+                        @if ($task->status == 1)
+                            <div class="card-body p-1">
+                                <div class="card card-primary card-outline">
+                                    <div class="card-header">
+                                        <div class="card-tools">
+                                            <a href="#" class="btn btn-tool">
+                                                <i class="fas fa-pen"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
                 <div class="card card-row card-default col-sm">
@@ -60,17 +64,19 @@
                         </h3>
                     </div>
                     @foreach ($tasks as $task)
-                        <div class="card-body p-1">
-                            <div class="card card-primary card-outline">
-                                <div class="card-header">
-                                    <div class="card-tools">
-                                        <a href="#" class="btn btn-tool">
-                                            <i class="fas fa-pen"></i>
-                                        </a>
+                        @if ($task->status == 2)
+                            <div class="card-body p-1">
+                                <div class="card card-primary card-outline">
+                                    <div class="card-header">
+                                        <div class="card-tools">
+                                            <a href="#" class="btn btn-tool">
+                                                <i class="fas fa-pen"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
                 <div class="card card-row card-success col-sm">
@@ -80,17 +86,19 @@
                         </h3>
                     </div>
                     @foreach ($tasks as $task)
-                        <div class="card-body p-1">
-                            <div class="card card-primary card-outline">
-                                <div class="card-header">
-                                    <div class="card-tools">
-                                        <a href="#" class="btn btn-tool">
-                                            <i class="fas fa-pen"></i>
-                                        </a>
+                        @if ($task->status == 3)
+                            <div class="card-body p-1">
+                                <div class="card card-primary card-outline">
+                                    <div class="card-header">
+                                        <div class="card-tools">
+                                            <a href="#" class="btn btn-tool">
+                                                <i class="fas fa-pen"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
             </div>

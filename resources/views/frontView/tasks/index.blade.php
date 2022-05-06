@@ -24,6 +24,12 @@
                             <div class="card-body p-1">
                                 <div class="card p-1 card-info card-outline">
                                     <div class="card-header">
+                                        <div>
+                                            {{ $task->title }}
+                                        </div>
+                                        <div>
+                                            {{ $task->submission }}
+                                        </div>
                                         <div class="card-tools">
                                             <a href='#' class="btn btn-tool">
                                                 <i class="fas fa-pen"></i>

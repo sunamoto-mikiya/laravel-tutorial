@@ -6,6 +6,7 @@ use App\Models\Task;
 use App\Http\Controllers\Controller;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -118,5 +119,30 @@ class TaskController extends Controller
     {
         $result = Task::find($id)->delete();
         return redirect()->route('home');
+    }
+
+    public function status(Request $request, $id)
+    {
+        $status = $request->input('status');
+        $data = Task::find($id);
+        switch ($status) {
+            case 0:
+                $data->update(['status' => 1]);
+                return redirect()->route('home');
+                break;
+            case 1:
+                $data->update(['status' => 2]);
+                return redirect()->route('home');
+                break;
+            case 2:
+                $data->update(['status' => 3]);
+                return redirect()->route('home');
+                break;
+            case 3:
+                $data->update(['status' => 3]);
+                return redirect()->route('home');
+                break;
+            default;
+        }
     }
 }

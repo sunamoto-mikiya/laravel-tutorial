@@ -24,16 +24,29 @@
                             <div class="card-body p-1">
                                 <div class="card p-1 card-info card-outline">
                                     <div class="card-header">
-                                        <div>
-                                            {{ $task->title }}
-                                        </div>
-                                        <div>
-                                            {{ $task->submission }}
-                                        </div>
-                                        <div class="card-tools">
-                                            <a href={{ route('back.tasks.edit', $task->id) }} class="btn btn-tool">
-                                                <i class="fas fa-pen"></i>
-                                            </a>
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <div>
+                                                    {{ $task->title }}
+                                                </div>
+                                                <div>
+                                                    {{ $task->submission }}
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <form action="{{ route('back.status', $task->id) }}" method='POST'>
+                                                    @method('put')
+                                                    @csrf
+                                                    <button type="submit" name="status" value="{{ $task->status }}"
+                                                        class="btn btn-primary" control-id="ControlID-5">Doing</button>
+                                                </form>
+                                                <div class="card-tools">
+                                                    <a href={{ route('back.tasks.edit', $task->id) }}
+                                                        class="btn btn-tool">
+                                                        <i class="fas fa-pen"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -50,12 +63,31 @@
                     @foreach ($tasks as $task)
                         @if ($task->status == 1)
                             <div class="card-body p-1">
-                                <div class="card card-primary card-outline">
+                                <div class="card p-1 card-info card-outline">
                                     <div class="card-header">
-                                        <div class="card-tools">
-                                            <a href="#" class="btn btn-tool">
-                                                <i class="fas fa-pen"></i>
-                                            </a>
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <div>
+                                                    {{ $task->title }}
+                                                </div>
+                                                <div>
+                                                    {{ $task->submission }}
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <form action="{{ route('back.status', $task->id) }}" method='POST'>
+                                                    @method('put')
+                                                    @csrf
+                                                    <button type="submit" name="status" value="{{ $task->status }}"
+                                                        class="btn btn-primary" control-id="ControlID-5">Done</button>
+                                                </form>
+                                                <div class="card-tools">
+                                                    <a href={{ route('back.tasks.edit', $task->id) }}
+                                                        class="btn btn-tool">
+                                                        <i class="fas fa-pen"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -72,12 +104,31 @@
                     @foreach ($tasks as $task)
                         @if ($task->status == 2)
                             <div class="card-body p-1">
-                                <div class="card card-primary card-outline">
+                                <div class="card p-1 card-info card-outline">
                                     <div class="card-header">
-                                        <div class="card-tools">
-                                            <a href="#" class="btn btn-tool">
-                                                <i class="fas fa-pen"></i>
-                                            </a>
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <div>
+                                                    {{ $task->title }}
+                                                </div>
+                                                <div>
+                                                    {{ $task->submission }}
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <form action="{{ route('back.status', $task->id) }}" method='POST'>
+                                                    @method('put')
+                                                    @csrf
+                                                    <button type="submit" name="status" value="{{ $task->status }}"
+                                                        class="btn btn-primary" control-id="ControlID-5">Submitted</button>
+                                                </form>
+                                                <div class="card-tools">
+                                                    <a href={{ route('back.tasks.edit', $task->id) }}
+                                                        class="btn btn-tool">
+                                                        <i class="fas fa-pen"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -94,12 +145,32 @@
                     @foreach ($tasks as $task)
                         @if ($task->status == 3)
                             <div class="card-body p-1">
-                                <div class="card card-primary card-outline">
+                                <div class="card p-1 card-info card-outline">
                                     <div class="card-header">
-                                        <div class="card-tools">
-                                            <a href="#" class="btn btn-tool">
-                                                <i class="fas fa-pen"></i>
-                                            </a>
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <div>
+                                                    {{ $task->title }}
+                                                </div>
+                                                <div>
+                                                    {{ $task->submission }}
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <form action="{{ route('back.tasks.destroy', $task->id) }}"
+                                                    method='POST'>
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button type="submit" name="status" value="{{ $task->status }}"
+                                                        class="btn btn-primary" control-id="ControlID-5">Delete</button>
+                                                </form>
+                                                <div class="card-tools">
+                                                    <a href={{ route('back.tasks.edit', $task->id) }}
+                                                        class="btn btn-tool">
+                                                        <i class="fas fa-pen"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

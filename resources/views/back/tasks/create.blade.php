@@ -7,7 +7,7 @@
             <div class="card-header">
                 <h3 class="card-title">タスクの新規作成</h3>
             </div>
-            <form action="{{ route('back.tasks.store') }}" method="POST">
+            <form action="{{ route('back.task.store') }}" method="POST">
                 @csrf
                 <div class="card-body">
                     {{-- タイトル設定欄 --}}

@@ -56,9 +56,6 @@ class TaskController extends Controller
     {
         //＄idを指定して取得。無い場合はエラーが出る
         // $post = Post::where('is_public', true)->findOrFail($id); 
-
-        $post = Post::publicFindById($id);
-        return view('frontView.posts.show', compact('post'));
     }
 
     /**
@@ -69,7 +66,7 @@ class TaskController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        // 
     }
 
     /**

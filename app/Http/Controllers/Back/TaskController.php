@@ -54,7 +54,6 @@ class TaskController extends Controller
 
         $data = $request->merge(['user_id' => Auth::user()->id])->all();
         $result = Task::create($data);
-        dd($data);
 
         return redirect()->route('back.tasks.index');
     }
@@ -78,7 +77,8 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        return view('back.tasks.edit', compact('id'));
+        $task = Task::find($id);
+        return view('back.tasks.edit', compact('task'));
     }
 
     /**

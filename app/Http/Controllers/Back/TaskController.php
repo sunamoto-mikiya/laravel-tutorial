@@ -42,12 +42,12 @@ class TaskController extends Controller
         // バリデーション
         $validator = Validator::make($request->all(), [
             'title' => 'required',
-            'memo' => 'required',
+            'submission' => 'required',
         ]);
         // バリデーション:エラー
         if ($validator->fails()) {
             return redirect()
-                ->route('back.tasks.ceate')
+                ->route('back.tasks.create')
                 ->withInput()
                 ->withErrors($validator);
         }
@@ -90,7 +90,22 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // バリデーション
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'submission' => 'required',
+        ]);
+        // バリデーション:エラー
+        if ($validator->fails()) {
+            return redirect()
+                ->route('back.tasks.create')
+                ->withInput()
+                ->withErrors($validator);
+        }
+
+        $result = Task::find($id)->update($request->all());
+
+        return redirect()->route('home');
     }
 
     /**

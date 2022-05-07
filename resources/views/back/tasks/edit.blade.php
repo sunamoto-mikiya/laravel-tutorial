@@ -7,7 +7,8 @@
             <div class="card-header">
                 <h3 class="card-title">タスクの編集</h3>
             </div>
-            <form action="#" method="POST">
+            <form action="{{ route('back.tasks.update', $task->id) }}" method="POST">
+                @method('put')
                 @csrf
                 <div class="card-body">
                     {{-- タイトル設定欄 --}}

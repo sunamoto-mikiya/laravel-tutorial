@@ -3,6 +3,14 @@
 @section('content')
     {{-- @extendsで継承したファイル内の@yieldの部分に@section~@endsectionの部分を埋め込む --}}
     <section class="content pb-3 w-75 mx-auto">
+        <div class="mx-auto w-25 mb-10">
+            <form action="{{ route('back.tasks.destroy', $task->id) }}" method="POST">
+                @method('delete')
+                @csrf
+                <button type="submit" class="btn btn-block btn-danger btn-sm" control-id="ControlID-35">タスクの削除
+                </button>
+            </form>
+        </div>
         <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">タスクの編集</h3>

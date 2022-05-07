@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use PhpParser\Node\Expr\Cast;
 
 class Task extends Model
 {
@@ -24,4 +25,8 @@ class Task extends Model
     {
         return self::where('user_id', $id)->get();
     }
+
+    protected $casts = [
+        'repeat' => 'date:Y-m-d',
+    ];
 }

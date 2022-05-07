@@ -55,7 +55,7 @@ class TaskController extends Controller
         $data = $request->merge(['user_id' => Auth::user()->id])->all();
         $result = Task::create($data);
 
-        return redirect()->route('back.tasks.index');
+        return redirect()->route('home');
     }
 
     /**

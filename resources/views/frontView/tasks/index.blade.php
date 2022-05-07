@@ -4,7 +4,7 @@
     {{-- @extendsで継承したファイル内の@yieldの部分に@section~@endsectionの部分を埋め込む --}}
     <section class="content pb-3">
         <div class="mx-auto w-25 mb-10">
-            <a href="{{ route('back.task.create') }}">
+            <a href="{{ route('back.tasks.create') }}">
                 <button type="button" class="btn btn-block btn-danger btn-sm" control-id="ControlID-35">タスクの新規作成
                 </button>
             </a>
@@ -31,7 +31,7 @@
                                             {{ $task->submission }}
                                         </div>
                                         <div class="card-tools">
-                                            <a href={{ route('back.task.edit', $task->id) }} class="btn btn-tool">
+                                            <a href={{ route('back.tasks.edit', $task->id) }} class="btn btn-tool">
                                                 <i class="fas fa-pen"></i>
                                             </a>
                                         </div>

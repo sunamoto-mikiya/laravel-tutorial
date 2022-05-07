@@ -30,12 +30,21 @@
                     </div>
                     {{-- チェックボックス --}}
                     <div class="custom-control custom-checkbox mb-10">
-                        @if ($task->is_repeat == 0)
-                            <input class="custom-control-input" type="hidden" name="is_repeat" value="0">
-                        @else
-                            <input class="custom-control-input" type="checkbox" name="is_repeat" checked
-                                id="customCheckbox1" value="1" control-id="ControlID-28">
-                        @endif
+                        @switch($task->is_repeat)
+                            @case(0)
+                                <input class="custom-control-input" type="hidden" name="is_repeat" value="0">
+                            @break
+
+                            @case(1)
+                                <input class="custom-control-input" type="checkbox" name="is_repeat" id="customCheckbox1" value="1"
+                                    checked control-id="ControlID-28">
+                            @break
+
+                            @default
+                        @endswitch
+                        <input class="custom-control-input" type="hidden" name="is_repeat" value="0">
+                        <input class="custom-control-input" type="checkbox" name="is_repeat" id="customCheckbox1" value="1"
+                            control-id="ControlID-28">
                         <label for="customCheckbox1" class="custom-control-label">予定を繰り返す</label>
                     </div>
                     {{-- 繰り返す曜日 --}}

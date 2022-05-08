@@ -29,20 +29,7 @@
                         <input class="custom-control-input" type="hidden" name="is_repeat" value="0">
                         <input class="custom-control-input" type="checkbox" name="is_repeat" id="customCheckbox1" value="1"
                             control-id="ControlID-28">
-                        <label for="customCheckbox1" class="custom-control-label">予定を繰り返す</label>
-                    </div>
-                    {{-- 繰り返す曜日 --}}
-                    <div class="form-group">
-                        <label>繰り返す曜日</label>
-                        <select class="form-control" name="repeatday" control-id="ControlID-24">
-                            <option value=0>日曜日</option>
-                            <option value=1 selected>月曜日</option>
-                            <option value=2>火曜日</option>
-                            <option value=3>水曜日</option>
-                            <option value=4>木曜日</option>
-                            <option value=5>金曜日</option>
-                            <option value=6>土曜日</option>
-                        </select>
+                        <label for="customCheckbox1" class="custom-control-label">予定を繰り返さない</label>
                     </div>
                     {{-- 繰り返す期日 --}}
                     <div class="form-group">
@@ -50,7 +37,6 @@
                         <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
                             <input type="date" name="repeat" class="form-control datetimepicker-input"
                                 data-target="#reservationdatetime" control-id="ControlID-32">
-
                         </div>
                     </div>
                     {{-- 通知を送る設定 --}}

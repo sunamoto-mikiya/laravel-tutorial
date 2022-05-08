@@ -57,12 +57,19 @@ class TaskController extends Controller
         }
 
         $data = $request->merge(['user_id' => Auth::user()->id])->all();
-
-        $submission = $request->input('submission');
-        $repeat = new Carbon($request->input('repeat'));
         $group_id = str_pad(random_int(0, 99999999), 8, 0, STR_PAD_LEFT);
 
-        $periods = CarbonPeriod::create($submission, $repeat->addDay())->weeks()->toArray();
+        if ($data['is_repeat'] == 0) {
+            $submission = $request->input('submission');
+            $repeat = new Carbon($request->input('repeat'));
+            $periods = CarbonPeriod::create($submission, $repeat->addDay())->weeks()->toArray();
+        } else {
+            $submission = $request->input('submission');
+            $repeat = $data['submission'];
+            $periods = CarbonPeriod::create($submission, $repeat)->weeks()->toArray();
+        }
+
+
 
         foreach ($periods as $period) {
             $result = Task::create([
@@ -76,8 +83,6 @@ class TaskController extends Controller
                 'memo' => $data['memo'],
             ]);
         }
-
-
         return redirect()->route('home');
     }
 

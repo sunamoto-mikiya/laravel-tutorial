@@ -26,7 +26,8 @@ class Task extends Model
         return self::where('user_id', $id)->get();
     }
 
-    protected $casts = [
-        'repeat' => 'date:Y-m-d',
-    ];
+
+    // protected $casts = [
+    //     'repeat' => 'date:Y-m-d',
+    // ];
 }

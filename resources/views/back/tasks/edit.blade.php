@@ -55,52 +55,6 @@
                             control-id="ControlID-28">
                         <label for="customCheckbox1" class="custom-control-label">予定を繰り返す</label>
                     </div>
-                    {{-- 繰り返す曜日 --}}
-                    <div class="form-group">
-                        <label>繰り返す曜日</label>
-                        <select class="form-control" name="repeatday" control-id="ControlID-24">
-                            <option value={{ $task->repeatday }} selected hidden>
-                                @switch($task->repeatday)
-                                    @case(0)
-                                        日曜日
-                                    @break
-
-                                    @case(1)
-                                        月曜日
-                                    @break
-
-                                    @case(2)
-                                        火曜日
-                                    @break
-
-                                    @case(3)
-                                        水曜日
-                                    @break
-
-                                    @case(4)
-                                        木曜日
-                                    @break
-
-                                    @case(5)
-                                        金曜日
-                                    @break
-
-                                    @case(6)
-                                        土曜日
-                                    @break
-
-                                    @default
-                                @endswitch
-                            </option>
-                            <option value=0>日曜日</option>
-                            <option value=1>月曜日</option>
-                            <option value=2>火曜日</option>
-                            <option value=3>水曜日</option>
-                            <option value=4>木曜日</option>
-                            <option value=5>金曜日</option>
-                            <option value=6>土曜日</option>
-                        </select>
-                    </div>
                     {{-- 繰り返す期日 --}}
                     <div class="form-group">
                         <label>繰り返す期日</label>

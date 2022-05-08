@@ -53,16 +53,23 @@
                         <input class="custom-control-input" type="hidden" name="is_repeat" value="0">
                         <input class="custom-control-input" type="checkbox" name="is_repeat" id="customCheckbox1" value="1"
                             control-id="ControlID-28">
-                        <label for="customCheckbox1" class="custom-control-label">予定を繰り返す</label>
+                        <label for="customCheckbox1" class="custom-control-label">予定を繰り返えさない</label>
                     </div>
                     {{-- 繰り返す期日 --}}
                     <div class="form-group">
                         <label>繰り返す期日</label>
-                        <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
-                            <input type="date" name="repeat" value="{{ $task->repeat->format('Y-m-d') }}"
-                                class="form-control datetimepicker-input" data-target="#reservationdatetime"
-                                control-id="ControlID-32">
-                        </div>
+                        @if ($task->repeat != null)
+                            <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                                <input type="date" name="repeat" value="{{ $task->repeat->format('Y-m-d') }}"
+                                    class="form-control datetimepicker-input" data-target="#reservationdatetime"
+                                    control-id="ControlID-32">
+                            </div>
+                        @else
+                            <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                                <input type="date" name="repeat" class="form-control datetimepicker-input"
+                                    data-target="#reservationdatetime" control-id="ControlID-32">
+                            </div>
+                        @endif
                     </div>
                     {{-- 通知を送る設定 --}}
                     <div class="form-group">

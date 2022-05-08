@@ -27,7 +27,7 @@ class Task extends Model
     }
 
 
-    // protected $casts = [
-    //     'repeat' => 'date:Y-m-d',
-    // ];
+    protected $casts = [
+        'repeat' => 'date:Y-m-d',
+    ];
 }

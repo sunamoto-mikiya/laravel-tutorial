@@ -60,6 +60,7 @@ class TaskController extends Controller
 
         $submission = $request->input('submission');
         $repeat = new Carbon($request->input('repeat'));
+        $group_id = str_pad(random_int(0, 99999999), 8, 0, STR_PAD_LEFT);
 
         $periods = CarbonPeriod::create($submission, $repeat->addDay())->weeks()->toArray();
 
@@ -71,7 +72,7 @@ class TaskController extends Controller
                 'advance' => $data['advance'],
                 'is_repeat' => $data['is_repeat'],
                 'repeat' => $data['repeat'],
-                'group_id' => str_pad(random_int(0, 99999999), 8, 0, STR_PAD_LEFT),
+                'group_id' => $group_id,
                 'memo' => $data['memo'],
             ]);
         }

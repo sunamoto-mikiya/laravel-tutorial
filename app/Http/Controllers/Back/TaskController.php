@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Back;
 
 use App\Models\Task;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Auth;
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Validator;
@@ -54,7 +57,25 @@ class TaskController extends Controller
         }
 
         $data = $request->merge(['user_id' => Auth::user()->id])->all();
-        $result = Task::create($data);
+
+        $submission = $request->input('submission');
+        $repeat = new Carbon($request->input('repeat'));
+
+        $periods = CarbonPeriod::create($submission, $repeat->addDay())->weeks()->toArray();
+
+        foreach ($periods as $period) {
+            $result = Task::create([
+                'user_id' => $data['user_id'],
+                'title' => $data['title'],
+                'submission' => $period,
+                'advance' => $data['advance'],
+                'is_repeat' => $data['is_repeat'],
+                'repeat' => $data['repeat'],
+                'group_id' => str_pad(random_int(0, 99999999), 8, 0, STR_PAD_LEFT),
+                'memo' => $data['memo'],
+            ]);
+        }
+
 
         return redirect()->route('home');
     }
@@ -105,7 +126,6 @@ class TaskController extends Controller
         }
 
         $result = Task::find($id)->update($request->all());
-
         return redirect()->route('home');
     }
 

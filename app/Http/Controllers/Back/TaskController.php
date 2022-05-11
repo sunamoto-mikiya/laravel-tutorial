@@ -133,9 +133,15 @@ class TaskController extends Controller
 
 
         if ($request->is_repeat == false) {
+
             $task = Task::find($id);
             //一旦同じgroup_idを持つタスクを消す
-            Task::where('group_id', $task->group_id)->delete();
+            Task::where(
+                [
+                    ['group_id', $task->group_id],
+                    ['submission', '>=', $task->submission]
+                ]
+            )->delete();
 
             $taskController = new TaskController();
             $tasks = $taskController->store($request);

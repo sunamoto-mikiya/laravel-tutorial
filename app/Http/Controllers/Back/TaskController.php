@@ -131,8 +131,20 @@ class TaskController extends Controller
                 ->withErrors($validator);
         }
 
-        $result = Task::find($id)->update($request->all());
-        return redirect()->route('home');
+
+        if ($request->is_repeat == false) {
+            $task = Task::find($id);
+            //一旦同じgroup_idを持つタスクを消す
+            Task::where('group_id', $task->group_id)->delete();
+
+            $taskController = new TaskController();
+            $tasks = $taskController->store($request);
+
+            return redirect()->route('home');
+        } else {
+            Task::find($id)->update($request->all());
+            return redirect()->route('home');
+        }
     }
 
     /**
@@ -147,6 +159,7 @@ class TaskController extends Controller
         return redirect()->route('home');
     }
 
+    // 状態を切り替える
     public function status(Request $request, $id)
     {
         $status = $request->input('status');

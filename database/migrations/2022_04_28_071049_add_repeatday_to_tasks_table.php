@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->integer('repeatday')->default('0')->after('is_repeat');
+            $table->integer('repeatday')->default('2')->after('is_repeat');
         });
     }
 

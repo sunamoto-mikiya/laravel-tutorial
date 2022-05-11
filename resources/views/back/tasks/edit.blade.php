@@ -76,7 +76,7 @@
                         <label>通知設定</label>
                         <select class="form-control" name="advance" control-id="ControlID-24">
                             <option value={{ $task->advance }} selected hidden>
-                                @switch($task->repeatday)
+                                @switch($task->advance)
                                     @case(0)
                                         0日前
                                     @break

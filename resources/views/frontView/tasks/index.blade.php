@@ -10,6 +10,13 @@
             </a>
         </div>
 
+        <div class="mx-auto w-25 mb-10">
+            <a href="{{ route('back.slack.index') }}">
+                <button type="button" class="btn btn-block btn-danger btn-sm" control-id="ControlID-35">タスクの新規作成
+                </button>
+            </a>
+        </div>
+
         <div class="container-fluid h-100">
             <div class="row">
                 <div class="card  card-secondary col-sm">

@@ -13,6 +13,6 @@ use App\Http\Controllers\Front\PostController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });

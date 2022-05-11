@@ -133,7 +133,6 @@ class TaskController extends Controller
 
 
         if ($request->is_repeat == false) {
-
             $task = Task::find($id);
             //一旦同じgroup_idを持つタスクを消す
             Task::where(
@@ -142,12 +141,13 @@ class TaskController extends Controller
                     ['submission', '>=', $task->submission]
                 ]
             )->delete();
-
+            //編集した内容で再度タスク生成
             $taskController = new TaskController();
             $tasks = $taskController->store($request);
 
             return redirect()->route('home');
         } else {
+            //繰り返さない課題の編集
             Task::find($id)->update($request->all());
             return redirect()->route('home');
         }
@@ -161,8 +161,21 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        $result = Task::find($id)->delete();
-        return redirect()->route('home');
+        $task = Task::find($id);
+        if ($task->is_repeat == false) {
+            $task = Task::find($id);
+            //一旦同じgroup_idを持つタスクを消す
+            Task::where(
+                [
+                    ['group_id', $task->group_id],
+                    ['submission', '>=', $task->submission]
+                ]
+            )->delete();
+            return redirect()->route('home');
+        } else {
+            $task->delete();
+            return redirect()->route('home');
+        }
     }
 
     // 状態を切り替える

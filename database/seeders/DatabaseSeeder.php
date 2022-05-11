@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         //追記
         $this->call(UserSeeder::class);
         // \App\Models\User::factory(10)->create();
-        $this->call(PostSeeder::class);
+        // $this->call(PostSeeder::class);
     }
 }
 //クラス名::classでクラスのパスを返す.pwdに似ている

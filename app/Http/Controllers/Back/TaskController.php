@@ -55,7 +55,7 @@ class TaskController extends Controller
         // バリデーション:エラー
         if ($validator->fails()) {
             return redirect()
-                ->route('back.tasks.create')
+                ->route('home')
                 ->withInput()
                 ->withErrors($validator);
         }

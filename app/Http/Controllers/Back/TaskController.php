@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Back;
 
+use App\Facades\Slack as FacadesSlack;
 use App\Models\Task;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
@@ -11,7 +12,10 @@ use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Validator;
-
+use Notification;
+use App\Notifications\Slack;
+use App\Notifications\SlackNotification;
+use App\Models\User;
 
 class TaskController extends Controller
 {
@@ -69,8 +73,6 @@ class TaskController extends Controller
             $periods = CarbonPeriod::create($submission, $repeat)->weeks()->toArray();
         }
 
-
-
         foreach ($periods as $period) {
             $result = Task::create([
                 'user_id' => $data['user_id'],
@@ -83,6 +85,9 @@ class TaskController extends Controller
                 'memo' => $data['memo'],
             ]);
         }
+        $user = User::find($data['user_id']);
+        Notification::route('slack', $user->slack_url)->notify(new SlackNotification($request->input('title')));
+
         return redirect()->route('home');
     }
 

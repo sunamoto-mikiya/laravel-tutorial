@@ -3,21 +3,14 @@
 @section('content')
     {{-- @extendsで継承したファイル内の@yieldの部分に@section~@endsectionの部分を埋め込む --}}
     <section class="content pb-3">
-        <div class="mx-auto w-25 mb-10">
+        <div class="mx-auto w-25">
             <a href="{{ route('back.tasks.create') }}">
-                <button type="button" class="btn btn-block btn-danger btn-sm" control-id="ControlID-35">タスクの新規作成
+                <button type="button" class=" btn btn-block btn-dark m-10" control-id="ControlID-35">タスクの新規作成
                 </button>
             </a>
         </div>
 
-        <div class="mx-auto w-25 mb-10">
-            <a href="{{ route('back.slack.index') }}">
-                <button type="button" class="btn btn-block btn-danger btn-sm" control-id="ControlID-35">タスクの新規作成
-                </button>
-            </a>
-        </div>
-
-        <div class="container-fluid h-100">
+        <div class="container-fluid h-100 ">
             <div class="row">
                 <div class="card  card-secondary col-sm">
                     <div class="card-header">
@@ -185,8 +178,6 @@
                     @endforeach
                 </div>
             </div>
-
-        </div>
         </div>
     </section>
 @endsection

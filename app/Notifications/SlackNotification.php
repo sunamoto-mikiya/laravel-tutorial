@@ -6,23 +6,24 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\SlackMessage;
 
-class Slack extends Notification
+class SlackNotification extends Notification
 {
     use Queueable;
 
     /**
      * @var string $str
      */
-    private $str;
+    private $title;
+    private $submission;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($str)
+    public function __construct($title = null)
     {
-        $this->str = $str;
+        $this->title = "タスク" . $title . "が作成されました。";
     }
 
     /**
@@ -44,7 +45,7 @@ class Slack extends Notification
      */
     public function toSlack($notifiable)
     {
-        return (new SlackMessage)->content($this->str);
+        return (new SlackMessage)->content($this->title);
     }
 
     /**

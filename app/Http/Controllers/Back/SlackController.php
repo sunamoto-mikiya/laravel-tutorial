@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use App\Http\Requests\SlackRequest;
 use App\Notifications\Slack;
+use App\Notifications\SlackNotification;
 
 class SlackController extends Controller
 {
@@ -32,8 +33,9 @@ class SlackController extends Controller
      */
     public function send(SlackRequest $request)
     {
+
         $requestBody = $request->validated();
-        $this->notify(new Slack($requestBody['str']));
+        $this->notify(new SlackNotification($requestBody['title']));
 
         return redirect(route('back.slack.index'));
     }

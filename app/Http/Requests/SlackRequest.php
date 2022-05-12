@@ -24,7 +24,7 @@ class SlackRequest extends FormRequest
     public function rules()
     {
         return [
-            'str' => ['required'],
+            'title' => 'required',
         ];
     }
 }

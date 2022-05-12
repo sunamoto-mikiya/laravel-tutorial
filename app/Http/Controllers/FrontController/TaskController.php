@@ -18,6 +18,7 @@ class TaskController extends Controller
      */
     public function index(Request $request)
     {
+
         $user = $request->user()->id;
         $tasks = Task::getTask($user);
 

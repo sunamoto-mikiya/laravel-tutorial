@@ -13,11 +13,11 @@
     <main>
         <form action="{{ route('back.slack.send') }}" method="post">
             @csrf
-            @error('str')
+            @error('title')
                 {{ $message }}
                 <br>
             @enderror
-            <input type="text" name="str">
+            <input type="text" name="title">
             <button type="submit">送信</button>
         </form>
     </main>

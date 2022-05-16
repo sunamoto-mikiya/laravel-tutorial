@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Validator;
 use Notification;
 use App\Notifications\Slack;
 use App\Notifications\SlackNotification;
+use App\Notifications\SlackDateNotification;
 use App\Models\User;
 
 class TaskController extends Controller
@@ -164,10 +165,11 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
+
         $task = Task::find($id);
-        if ($task->is_repeat == false) {
+        if ($request->input('delete_check') == 1) {
             $task = Task::find($id);
             //一旦同じgroup_idを持つタスクを消す
             Task::where(

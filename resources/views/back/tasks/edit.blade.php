@@ -9,6 +9,14 @@
                 @csrf
                 <button type="submit" class="btn btn-block btn-danger btn-sm" control-id="ControlID-35">タスクの削除
                 </button>
+                <div class="custom-control custom-checkbox mb-10">
+                    <input class="custom-control-input" type="hidden" name="delete_check" value="0">
+                    @if (!$task->is_repeat)
+                        <input class="custom-control-input" type="checkbox" name="delete_check" id="customCheckbox1"
+                            value="1" control-id="ControlID-28">
+                        <label for="customCheckbox1" class="custom-control-label">この予定以降を全て削除する</label>
+                    @endif
+                </div>
             </form>
         </div>
         <div class="card card-primary">

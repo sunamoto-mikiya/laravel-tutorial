@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\SlackMessage;
 
-class SlackNotification extends Notification
+class SlackDateNotification extends Notification
 {
     use Queueable;
 
@@ -21,9 +21,10 @@ class SlackNotification extends Notification
      *
      * @return void
      */
-    public function __construct($title = null)
+    public function __construct($title = null, $submission = null)
     {
-        $this->title =  $title;
+        $this->title = $title;
+        $this->submission = $submission;
     }
 
     /**
@@ -45,7 +46,7 @@ class SlackNotification extends Notification
      */
     public function toSlack($notifiable)
     {
-        return (new SlackMessage)->from('タスク作成通知')->content("タスクのタイトルは:" . $this->title);
+        return (new SlackMessage)->from('締め切り通知')->content("タスク名：" . $this->title . "\n" . "締め切り：" . $this->submission);
     }
 
     /**

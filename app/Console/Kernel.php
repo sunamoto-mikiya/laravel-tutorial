@@ -24,6 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        #締め切り当日の通知
         $schedule->call(function () {
             $today = Carbon::now()->toDateString();
             $tasks = Task::get();
@@ -33,6 +34,23 @@ class Kernel extends ConsoleKernel
                 //submissionをtoDateStringに変換
                 $submission = Carbon::parse($task->submission)->toDateString();
                 if ($submission == $today) {
+                    Notification::route('slack', $user->slack_url)->notify(new SlackDateNotification($task->title, $task->submission));
+                }
+            }
+        })->everyMinute();
+
+        ##締め切りn日前の通知
+        $schedule->call(function () {
+            $today = Carbon::now()->toDateString();
+            $tasks = Task::get();
+
+            foreach ($tasks as $task) {
+                $user = User::find($task->user_id);
+                //submissionをtoDateStringに変換
+                $submission = Carbon::parse($task->submission)->toDateString();
+                $carbon = new Carbon($submission);
+                $ad_submission = Carbon::parse($carbon->subday($task->advance))->toDateString();
+                if ($ad_submission == $today) {
                     Notification::route('slack', $user->slack_url)->notify(new SlackDateNotification($task->title, $task->submission));
                 }
             }

@@ -27,9 +27,9 @@
                     {{-- チェックボックス --}}
                     <div class="custom-control custom-checkbox mb-10">
                         <input class="custom-control-input" type="hidden" name="is_repeat" value="0">
-                        <input class="custom-control-input" type="checkbox" name="is_repeat" id="customCheckbox1" value="1"
+                        <input class="custom-control-input" type="checkbox" name="is_repeat" id="customCheckbox0" value="1"
                             control-id="ControlID-28">
-                        <label for="customCheckbox1" class="custom-control-label">予定を繰り返さない</label>
+                        <label for="customCheckbox0" class="custom-control-label">予定を繰り返さない</label>
                     </div>
                     {{-- 繰り返す期日 --}}
                     <div class="form-group">

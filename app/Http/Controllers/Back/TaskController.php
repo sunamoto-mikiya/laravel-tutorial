@@ -37,6 +37,18 @@ class TaskController extends Controller
      */
     public function create()
     {
+        $user_id = Auth::id();
+        $today = Carbon::now()->toDateString();
+        $tasks = Task::get();
+        $user = User::find($user_id);
+        foreach ($tasks as $task) {
+            dd($user->slack_url);
+            //submissionをtoDateStringに変換
+            $submission = Carbon::parse($task->submission)->toDateString();
+            if ($submission == $today) {
+                Notification::route('slack', 'https://hooks.slack.com/services/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')->notify(new SlackDateNotification($user->name, $task->submission));
+            }
+        }
         return view('back.tasks.create');
     }
 

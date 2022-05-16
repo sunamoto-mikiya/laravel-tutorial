@@ -137,8 +137,7 @@ class TaskController extends Controller
                 ->withErrors($validator);
         }
 
-
-        if ($request->is_repeat == false) {
+        if ($request->input('edit_check') == 1) {
             $task = Task::find($id);
             //一旦同じgroup_idを持つタスクを消す
             Task::where(

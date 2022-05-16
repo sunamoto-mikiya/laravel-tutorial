@@ -59,9 +59,9 @@
                             @default
                         @endswitch
                         <input class="custom-control-input" type="hidden" name="is_repeat" value="0">
-                        <input class="custom-control-input" type="checkbox" name="is_repeat" id="customCheckbox1" value="1"
+                        <input class="custom-control-input" type="checkbox" name="is_repeat" id="customCheckbox2" value="1"
                             control-id="ControlID-28">
-                        <label for="customCheckbox1" class="custom-control-label">予定を繰り返えさない</label>
+                        <label for="customCheckbox2" class="custom-control-label">予定を繰り返えさない</label>
                     </div>
                     {{-- 繰り返す期日 --}}
                     <div class="form-group">
@@ -132,6 +132,14 @@
                             <textarea class="form-control" name="memo" rows="3" control-id="ControlID-13">{{ $task->memo }}</textarea>
                         </div>
                     </div>
+                    @if (!$task->is_repeat)
+                        <div class="custom-control custom-checkbox mb-10">
+                            <input class="custom-control-input" type="hidden" name="edit_check" value="0">
+                            <input class="custom-control-input" type="checkbox" name="edit_check" id="customCheckbox3"
+                                value="1" control-id="ControlID-28">
+                            <label for="customCheckbox3" class="custom-control-label">この予定以降を全て編集する</label>
+                        </div>
+                    @endif
                 </div>
 
                 {{-- 決定ボタン --}}

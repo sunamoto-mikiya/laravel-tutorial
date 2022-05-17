@@ -37,7 +37,7 @@ class Kernel extends ConsoleKernel
                     Notification::route('slack', $user->slack_url)->notify(new SlackDateNotification($task->title, $task->submission));
                 }
             }
-        })->everyMinute();
+        })->dailyAt('9:00');
 
         ##締め切りn日前の通知
         $schedule->call(function () {
@@ -54,7 +54,7 @@ class Kernel extends ConsoleKernel
                     Notification::route('slack', $user->slack_url)->notify(new SlackDateNotification($task->title, $task->submission));
                 }
             }
-        })->everyMinute();
+        })->dailyAt('9:00');
     }
 
     /**

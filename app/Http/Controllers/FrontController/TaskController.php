@@ -18,11 +18,9 @@ class TaskController extends Controller
      */
     public function index(Request $request)
     {
-
+        // dd($request->input('period'));
         $user = $request->user()->id;
         $tasks = Task::getTask($user);
-
-
         return view('frontView.tasks.index', compact('tasks'));
     }
 

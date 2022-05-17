@@ -7,7 +7,9 @@
             <form action="{{ route('back.tasks.destroy', $task->id) }}" method="POST">
                 @method('delete')
                 @csrf
-                <button type="submit" class="btn btn-block btn-danger btn-sm" control-id="ControlID-35">タスクの削除
+                {{-- 削除ボタン --}}
+                <button type="submit" class="btn btn-block btn-danger btn-sm" onclick='return window.confirm("削除しますか？");'
+                    control-id="ControlID-35">タスクの削除
                 </button>
                 <div class="custom-control custom-checkbox mb-10">
                     <input class="custom-control-input" type="hidden" name="delete_check" value="0">
@@ -19,6 +21,7 @@
                 </div>
             </form>
         </div>
+        {{-- タスクの編集機能 --}}
         <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">タスクの編集</h3>

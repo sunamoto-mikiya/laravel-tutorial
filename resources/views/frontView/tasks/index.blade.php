@@ -9,8 +9,7 @@
                 </button>
             </a>
         </div>
-
-        <div class="container-fluid h-100 ">
+        <div class="container-fluid h-1000 ">
             <div class="row">
                 <div class="card  card-secondary col-sm">
                     <div class="card-header">
@@ -18,6 +17,18 @@
                             To Do
                         </h3>
                     </div>
+                    {{-- <form action="{{ route('home') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <select class="form-control" name="period" control-id="ControlID-24">
+                                <option value=1 selected>絞り込み</option>
+                                <option value=1>直近3日</option>
+                                <option value=2>直近1週間</option>
+                                <option value=3>直近2週間</option>
+                                <option value=4>今月</option>
+                            </select>
+                        </div>
+                    </form> --}}
                     @foreach ($tasks as $task)
                         @if ($task->status == 0)
                             <div class="card-body p-1">

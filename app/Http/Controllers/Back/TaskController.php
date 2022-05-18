@@ -86,8 +86,7 @@ class TaskController extends Controller
                 'memo' => $data['memo'],
             ]);
         }
-        $user = User::find($data['user_id']);
-        Notification::route('slack', $user->slack_url)->notify(new SlackNotification($request->input('title')));
+
 
         return redirect()->route('home');
     }

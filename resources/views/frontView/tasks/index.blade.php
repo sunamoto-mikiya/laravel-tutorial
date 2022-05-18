@@ -9,7 +9,7 @@
                 </button>
             </a>
         </div>
-        <div class="container-fluid h-1000 ">
+        <div class="container-xxl h-25 ">
             <div class="row">
                 <div class="card  card-secondary col-sm">
                     <div class="card-header">

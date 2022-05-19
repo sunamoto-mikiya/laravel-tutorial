@@ -2,13 +2,13 @@
 
 @section('content')
     {{-- @extendsで継承したファイル内の@yieldの部分に@section~@endsectionの部分を埋め込む --}}
-    <div class="mx-auto w-25">
+    <div class="mx-auto w-25 pt-2">
         <a href="{{ route('back.tasks.create') }}">
             <button type="button" class=" btn btn-block btn-dark" control-id="ControlID-35">タスクの新規作成
             </button>
         </a>
     </div>
-    <section class="content pb-3">
+    <section class="content p-5">
         {{-- ToDo看板 --}}
         <div class="container-xxl h-25">
             <div class="row">
@@ -164,7 +164,7 @@
                                                     @method('delete')
                                                     @csrf
                                                     <button type="submit" name="status" value="{{ $task->status }}"
-                                                        class="btn btn-danger" control-id="ControlID-5">Delete</button>
+                                                        class="btn btn-primary" control-id="ControlID-5">Delete</button>
                                                 </form>
                                                 <div class="card-tools">
                                                     <a href={{ route('back.tasks.edit', $task->id) }}

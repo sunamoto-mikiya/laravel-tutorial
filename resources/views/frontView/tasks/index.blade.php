@@ -2,14 +2,15 @@
 
 @section('content')
     {{-- @extendsで継承したファイル内の@yieldの部分に@section~@endsectionの部分を埋め込む --}}
+    <div class="mx-auto w-25">
+        <a href="{{ route('back.tasks.create') }}">
+            <button type="button" class=" btn btn-block btn-dark" control-id="ControlID-35">タスクの新規作成
+            </button>
+        </a>
+    </div>
     <section class="content pb-3">
-        <div class="mx-auto w-25">
-            <a href="{{ route('back.tasks.create') }}">
-                <button type="button" class=" btn btn-block btn-dark m-10" control-id="ControlID-35">タスクの新規作成
-                </button>
-            </a>
-        </div>
-        <div class="container-xxl h-25 ">
+        {{-- ToDo看板 --}}
+        <div class="container-xxl h-25">
             <div class="row">
                 <div class="card  card-secondary col-sm">
                     <div class="card-header">
@@ -17,18 +18,7 @@
                             To Do
                         </h3>
                     </div>
-                    {{-- <form action="{{ route('home') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <select class="form-control" name="period" control-id="ControlID-24">
-                                <option value=1 selected>絞り込み</option>
-                                <option value=1>直近3日</option>
-                                <option value=2>直近1週間</option>
-                                <option value=3>直近2週間</option>
-                                <option value=4>今月</option>
-                            </select>
-                        </div>
-                    </form> --}}
+                    {{-- 看板の中身の実際のタスク --}}
                     @foreach ($tasks as $task)
                         @if ($task->status == 0)
                             <div class="card-body p-1">
@@ -64,12 +54,14 @@
                         @endif
                     @endforeach
                 </div>
+                {{-- Doing看板 --}}
                 <div class="card card-row card-primary col-sm">
                     <div class="card-header">
                         <h3 class="card-title">
                             Doing
                         </h3>
                     </div>
+                    {{-- Doing看板の中身の実際のタスク --}}
                     @foreach ($tasks as $task)
                         @if ($task->status == 1)
                             <div class="card-body p-1">
@@ -89,7 +81,7 @@
                                                     @method('put')
                                                     @csrf
                                                     <button type="submit" name="status" value="{{ $task->status }}"
-                                                        class="btn btn-primary" control-id="ControlID-5">Done</button>
+                                                        class="btn btn-warning" control-id="ControlID-5">Done</button>
                                                 </form>
                                                 <div class="card-tools">
                                                     <a href={{ route('back.tasks.edit', $task->id) }}
@@ -106,7 +98,7 @@
                     @endforeach
                 </div>
                 <div class="card card-row card-default col-sm">
-                    <div class="card-header bg-info">
+                    <div class="card-header bg-warning">
                         <h3 class="card-title">
                             Done
                         </h3>
@@ -130,7 +122,7 @@
                                                     @method('put')
                                                     @csrf
                                                     <button type="submit" name="status" value="{{ $task->status }}"
-                                                        class="btn btn-primary" control-id="ControlID-5">Submitted</button>
+                                                        class="btn btn-success" control-id="ControlID-5">Submitted</button>
                                                 </form>
                                                 <div class="card-tools">
                                                     <a href={{ route('back.tasks.edit', $task->id) }}
@@ -172,7 +164,7 @@
                                                     @method('delete')
                                                     @csrf
                                                     <button type="submit" name="status" value="{{ $task->status }}"
-                                                        class="btn btn-primary" control-id="ControlID-5">Delete</button>
+                                                        class="btn btn-danger" control-id="ControlID-5">Delete</button>
                                                 </form>
                                                 <div class="card-tools">
                                                     <a href={{ route('back.tasks.edit', $task->id) }}

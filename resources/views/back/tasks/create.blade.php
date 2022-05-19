@@ -11,12 +11,12 @@
                 @csrf
                 <div class="card-body">
                     {{-- タイトル設定欄 --}}
-                    <div class="form-group">
+                    <div class="form-group w-25">
                         <label>タイトル</label>
                         <input type="text" name="title" class="form-control" control-id="ControlID-11">
                     </div>
                     {{-- 期日設定フォーム --}}
-                    <div class="form-group">
+                    <div class="form-group w-25">
                         <label>提出日</label>
                         <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
                             <input type="datetime-local" name='submission' class="form-control datetimepicker-input"
@@ -32,7 +32,7 @@
                         <label for="customCheckbox0" class="custom-control-label">予定を繰り返さない</label>
                     </div>
                     {{-- 繰り返す期日 --}}
-                    <div class="form-group">
+                    <div class="form-group w-25">
                         <label>繰り返す期日</label>
                         <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
                             <input type="date" name="repeat" class="form-control datetimepicker-input"
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     {{-- 通知を送る設定 --}}
-                    <div class="form-group">
+                    <div class="form-group w-25">
                         <label>通知設定</label>
                         <select class="form-control" name="advance" control-id="ControlID-24">
                             <option value=0>0日前</option>

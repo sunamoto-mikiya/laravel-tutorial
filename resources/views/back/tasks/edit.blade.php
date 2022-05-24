@@ -2,8 +2,8 @@
 
 @section('content')
     {{-- @extendsで継承したファイル内の@yieldの部分に@section~@endsectionの部分を埋め込む --}}
-    <section class="content pb-3 w-75 mx-auto">
-        <div class="mx-auto w-25 mb-10">
+    <section class="content w-50 mx-auto">
+        <div class="mx-auto w-25 m-3">
             <form action="{{ route('back.tasks.destroy', $task->id) }}" method="POST">
                 @method('delete')
                 @csrf
@@ -11,7 +11,7 @@
                 <button type="submit" class="btn btn-block btn-danger btn-sm" onclick='return window.confirm("削除しますか？");'
                     control-id="ControlID-35">タスクの削除
                 </button>
-                <div class="custom-control custom-checkbox mb-10">
+                <div class="custom-control custom-checkbox mt-3">
                     <input class="custom-control-input" type="hidden" name="delete_check" value="0">
                     @if (!$task->is_repeat)
                         <input class="custom-control-input" type="checkbox" name="delete_check" id="customCheckbox1"
@@ -31,13 +31,13 @@
                 @csrf
                 <div class="card-body">
                     {{-- タイトル設定欄 --}}
-                    <div class="form-group w-25">
+                    <div class="form-group w-50">
                         <label>タイトル</label>
                         <input type="text" name="title" value="{{ $task->title }}" class="form-control"
                             control-id="ControlID-11">
                     </div>
                     {{-- 期日設定フォーム --}}
-                    <div class="form-group w-25">
+                    <div class="form-group w-50">
                         <label>提出日</label>
                         <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
                             <input type="datetime-local" name='submission'
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     {{-- チェックボックス --}}
-                    <div class="custom-control custom-checkbox mb-10">
+                    <div class="custom-control custom-checkbox mb-2">
                         @switch($task->is_repeat)
                             @case(0)
                                 <input class="custom-control-input" type="hidden" name="is_repeat" value="0">
@@ -67,7 +67,7 @@
                         <label for="customCheckbox2" class="custom-control-label">予定を繰り返えさない</label>
                     </div>
                     {{-- 繰り返す期日 --}}
-                    <div class="form-group w-25">
+                    <div class="form-group w-50">
                         <label>繰り返す期日</label>
                         @if ($task->repeat != null)
                             <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
@@ -83,7 +83,7 @@
                         @endif
                     </div>
                     {{-- 通知を送る設定 --}}
-                    <div class="form-group w-25">
+                    <div class="form-group w-50">
                         <label>通知設定</label>
                         <select class="form-control" name="advance" control-id="ControlID-24">
                             <option value={{ $task->advance }} selected hidden>
@@ -136,7 +136,7 @@
                         </div>
                     </div>
                     @if (!$task->is_repeat)
-                        <div class="custom-control custom-checkbox mb-10">
+                        <div class="custom-control custom-checkbox mt-2">
                             <input class="custom-control-input" type="hidden" name="edit_check" value="0">
                             <input class="custom-control-input" type="checkbox" name="edit_check" id="customCheckbox3"
                                 value="1" control-id="ControlID-28">

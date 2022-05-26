@@ -4,3 +4,27 @@
 -名前が日本語名で出ない
 
 #1次面接に評価点    
+
+-issue 
+    -assigneesを自分に変える
+    -issueの番号をbranch名に
+    -git pull origin masterで最新にして
+    -git checkout -b でブランチ切る(git switch -c) 
+    -pushでpullリク作る
+
+-version
+    -php7.3
+    -laravel7
+    -materialize
+
+-環境
+    -docker-compose up でdockerが立ち上がる
+
+database（READ.MDに書いてある）
+    -public.file(mainのファイル)→
+    -evaliation→評価内容
+    -public_users→採用担当
+    -public.agents→採用流入経路(回収すべきテーブル.typeカラムを足す.既存のデータはバッチ処理でtypeを上書き) 
+
+-ファイル遷移の修正
+    -
